@@ -188,25 +188,38 @@ class _HorizontalList extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: Stack(
-                  children: [
-                    Hero(tag: tag, child: card),
-                    Positioned(
-                      left: 2,
-                      bottom: -6,
-                      child: Text(
-                        '${index + 1}',
-                        style: TextStyle(
-                          fontSize: 84,
-                          fontWeight: FontWeight.w900,
-                          color: Colors.white,
-                          height: 0.9,
-                          letterSpacing: -4,
-                          shadows: const [Shadow(color: Colors.black54, blurRadius: 4, offset: Offset(1, 2))],
+                child: SizedBox(
+                  width: 140, // 카드(120) + 랭킹 넘버 영역(20)
+                  height: itemHeight,
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      // 카드: 왼쪽에 랭킹 영역을 두기 위해 약간 오른쪽으로 밀어 배치
+                      Positioned(
+                        left: 20,
+                        top: 0,
+                        child: Hero(tag: tag, child: card),
+                      ),
+                      // 랭킹 넘버: 기존 위치 유지하되 카드 위 레이어에 오도록 순서상 뒤에 둔다
+                      Positioned(
+                        left: 0,
+                        bottom: -10,
+                        child: Text(
+                          '${index + 1}',
+                          style: TextStyle(
+                            fontSize: itemHeight * 0.5, // 카드 높이에 비례한 큰 사이즈
+                            fontWeight: FontWeight.w900,
+                            color: Colors.white,
+                            height: 1.3,
+                            letterSpacing: (index + 1) < 10 ? -2 : -4,
+                            shadows: const [
+                              Shadow(color: Colors.black54, blurRadius: 4, offset: Offset(1, 2)),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               );
             },
