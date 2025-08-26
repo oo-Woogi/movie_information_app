@@ -47,7 +47,7 @@ lib/
 ```
 
 ## 환경 변수(.env)
-TMDB **v4 Read Access Token**을 사용합니다. (v3 `api_key` 아님)
+TMDB **v4 Read Access Token**을 사용 (v3 `api_key` 아님)
 
 1) 프로젝트 루트에 `.env` 생성
 ```env
@@ -69,7 +69,7 @@ await dotenv.load(fileName: '.env');
 .env.*
 !.env.example
 ```
-원격 공유용으로는 `.env.example`만 커밋하세요.
+원격 공유용으로는 `.env.example`만 커밋
 
 ## 네트워킹
 - Base URL: `https://api.themoviedb.org/3`
@@ -96,7 +96,7 @@ flutter run
 ## Hero 태그 규칙
 - 히어로 메인: `hero_main_<id>`
 - 리스트 아이템: `poster_<section>_<id>` (예: `poster_popular_123`)
-- **한 화면 내 태그는 유일**해야 하며, 상세에서도 **동일 태그**를 사용해야 애니메이션이 동작합니다.
+- **한 화면 내 태그는 유일**해야 하며, 상세에서도 **동일 태그**를 사용해야 애니메이션이 동작
 
 ## 트러블슈팅(요약)
 - **401 Unauthorized**: v4 토큰 확인, `.env` 로드 및 `assets` 등록 여부 점검
